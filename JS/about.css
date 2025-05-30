@@ -1,0 +1,211 @@
+ body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    font-weight: bolder;
+    padding: 0;
+    background-color: #c7c4c480;
+    color: #333;
+    flex-grow: 1;
+    color: white;
+}
+
+ body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('https://c4.wallpaperflare.com/wallpaper/657/237/296/grass-nature-depth-of-field-spikelets-wallpaper-preview.jpg') no-repeat center center/cover;
+    
+} 
+
+
+
+
+
+/* Dark Black Overlay */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Darker overlay (0.6 to 0.8 for deep effect) */
+    z-index: -1; /* Keeps it behind all content */
+}
+
+
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.logo {
+    height: 80px;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+nav {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links li {
+    margin: 0 20px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #26d328;
+}
+
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        text-align: center;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .nav-links li {
+        margin: 15px 0;
+    }
+}
+/* About Section */
+.about-section {
+    padding: 80px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    gap: 40px;
+}
+
+.text-section {
+    flex: 1;
+    padding: 20px;
+}
+
+.text-section h2 {
+    font-size: 32px;
+    color: #1de620;
+    margin-bottom: 15px;
+}
+
+.text-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: white;
+}
+
+.image-section {
+    flex: 1;
+    text-align: center;
+}
+
+.image-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Footer */
+footer {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+}
+
+
+.features {
+    /* background-color: #f0f9ff; */
+    padding: 50px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.features h2 {
+    text-align: center;
+    color: #0077b6; /* Dark blue heading */
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.features ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.features li {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    background-color: #caf0f8; /* Soft blue highlight */
+    padding: 12px;
+    margin-bottom: 10px;
+    border-left: 5px solid #0077b6; /* Blue left border for emphasis */
+    border-radius: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.features li:hover {
+    background-color: #90e0ef; /* Darker blue on hover */
+    transform: translateX(5px); /* Slight movement for interactivity */
+}
+
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Check</title>
+</head>
+<body>
+    <div class="weather-box">
+        <h2>Current Weather</h2>
+        <input type="text" id="cityInput" placeholder="Enter city name">
+        <button onclick="getWeather()">Get Weather</button>
+        <p><strong>Temperature:</strong> <span id="temp">-</span>°C</p>
+        <p><strong>Humidity:</strong> <span id="humidity">-</span>%</p>
+        <p><strong>Condition:</strong> <span id="condition">-</span></p>
+        <p id="errorMessage" style="color: red;"></p>
+    </div>
+
+    <script>
+        function getWeather() {
+           
+            const apiKey = "10106b24de8fcb151acd7b889867f0a7";
+            
+
+            const city = document.getElementById("cityInput").value.trim();
+
+            if (!city) {
+                document.getElementById("errorMessage").textContent = "Please enter a city name!";
+                return;
+            }
+
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.cod !== 200) {
+                        throw new Error(data.message);
+                    }
+
+                    document.getElementById("temp").textContent = data.main.temp;
+                    document.getElementById("humidity").textContent = data.main.humidity;
+                    document.getElementById("condition").textContent = data.weather[0].description;
+                    document.getElementById("errorMessage").textContent = ""; // Clear errors
+                })
+                .catch(error => {
+                    document.getElementById("errorMessage").textContent = "Error: " + error.message;
+                });
+        }
+    </script>
+
+</body>
+</html>
